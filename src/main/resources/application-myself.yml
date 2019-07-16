@@ -26,6 +26,12 @@ spring:
       minimum-idle: 10
       # 连接池名字
       pool-name: DemoHikariCP
+  redis:
+    host: 172.28.128.3
+    port: 6379
+    # password:
+    database: 1
+    timeout: 5000
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
@@ -47,3 +53,8 @@ mybatis-plus:
     use-generated-keys: true
     default-statement-timeout: 60
     default-fetch-size: 100
+
+
+my:
+  name: forezp
+  age: 12
