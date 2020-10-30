@@ -1,6 +1,7 @@
 package com.yw.springbootdemo.file;
 
-import java.io.File;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author yangwei
@@ -8,10 +9,27 @@ import java.io.File;
  */
 public class TestFile {
     public static void main(String[] args) {
-        File file1 = new File("F:/test");
-        System.out.println(file1.getAbsolutePath());
-        System.out.println("判断是否存在："+file1.exists());
-        System.out.println("判断是否是文件夹："+file1.isDirectory());
-
+//        File file = new File("F:/test");
+//        if (!file.exists()) {
+//            file.mkdir();
+//        }
+//        System.out.println(file.getAbsolutePath());
+//        System.out.println("判断是否存在："+file.exists());
+//        System.out.println("判断是否是文件夹："+file.isDirectory());
+//        File file1 = new File("F:/test/test.txt");
+//        if (!file1.exists()) {
+//            file1.createNewFile();
+//        }
+        File file = new File("F:/test.txt");
+        try(OutputStream out = new FileOutputStream(file, true);
+            Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
+            String s = "Hello World";
+//            byte[] bytes = s.getBytes();
+//            out.write(bytes);
+            writer.write("Hello World");
+            writer.write("\r\n");
+        } catch (IOException e) {
+            System.out.println();
+        }
     }
 }

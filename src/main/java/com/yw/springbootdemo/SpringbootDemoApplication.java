@@ -1,6 +1,8 @@
 package com.yw.springbootdemo;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +19,8 @@ import java.util.stream.Stream;
 @EnableScheduling
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
 public class SpringbootDemoApplication {
+
+    protected final static Logger logger = LoggerFactory.getLogger(SpringbootDemoApplication.class);
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
